@@ -12,6 +12,6 @@ A ideia principal da ferramenta é graças ao vídeo no youtube de <a href="http
 
 ## A Fazer
 
-- Interface visualmete amigável
+- Interface visualmente amigável
 - Histórico de preços do item (7 dias)
   - Mostrar em gráficos
