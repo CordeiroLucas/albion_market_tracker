@@ -8,7 +8,11 @@ NOT_FOUND = {"PT-BR":"Item Não Encontrado!", "EN-US":"Item Not Found!"}
 QUIT_OPTION = {"PT-BR":"sair", "EN-US":"quit"}
 SILVER = {"PT-BR":"pratas", "EN-US":"silver"}
 
+# The map main locations
+LOCATIONS = ['Thetford', 'Lymhurst', 'Bridgewatch', 'Martlock', 'Fort Sterling', 'Caerleon', 'Brecilien']
+
 def get_price(PRICE_URL, ITEM_NAME, LOCATION):
+    """Get the item price by Location"""
 
     # Request data from the Albion Online API
     current_prices_response = requests.get(PRICE_URL + ITEM_NAME + '.json?&locations=' + LOCATION)
@@ -29,6 +33,7 @@ def get_price(PRICE_URL, ITEM_NAME, LOCATION):
 
 # Will get the item information from it's LocalizedName. e.g item UniqueName, item LocalizedDescription...
 def get_item(ITEM_NAME ,LANGUAGE):
+    """Get the item from it's localized name according the selected language"""
 
     # Request data from the Albion Online GitHub
     current_items_response = requests.get("https://raw.githubusercontent.com/ao-data/ao-bin-dumps/refs/heads/master/formatted/items.json")
@@ -49,3 +54,6 @@ def get_item(ITEM_NAME ,LANGUAGE):
                 if normalized_search == normalized_name or ITEM_NAME.upper() == item["UniqueName"]:
                     return item
     return None
+
+def parse_timestamp(timestamp):
+    return datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S')

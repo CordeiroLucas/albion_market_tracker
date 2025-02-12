@@ -4,9 +4,12 @@ Ela consome a informação de uma API feita por <a href="https://www.albion-onli
 
 A ideia principal da ferramenta é graças ao vídeo no youtube de <a href="https://www.youtube.com/watch?v=0sU0IYOFbJk">Brandon Jacobson (Jacobson Enterprises)</a>
 
+## Como funciona
+
+- No momento apenas executando o main.py e interagindo pelo terminal
+
 ## Funcinando
 
-- Ainda é no Terminal
 - Seleção de Linguagem
 - Busque os itens pelo seu <a href="https://github.com/ao-data/ao-bin-dumps/blob/master/formatted/items.txt">Nome Localizado ou Nome Único</a>
 
