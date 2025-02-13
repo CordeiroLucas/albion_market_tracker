@@ -1,5 +1,6 @@
 import requests
 import datetime
+import math
 
 from datetime import datetime
 
@@ -19,6 +20,7 @@ CURRENT_ITEMS_RESPONSE = requests.get("https://raw.githubusercontent.com/ao-data
 # Print According to selected Language
 ASK_SEARCH = {"PT-BR":"Buscar Item: ", "EN-US":"Search Item: "}
 
+INVALID_ENTRY = {"PT-BR":"Entrada Inválida", "EN-US":"Invalid Entry"}
 NOT_FOUND = {"PT-BR":"Item Não Encontrado!", "EN-US":"Item Not Found!"}
 CANT_RETRIEVE = {"PT-BR":"Não foi possível acessar os dados de Albion Market Data", 
                  "EN-US":"Can't retrive item data from Albion Market Data"}
