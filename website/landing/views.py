@@ -49,7 +49,8 @@ def search(request):
             else:
                 curr_price['price'] = 'N/A'
                 curr_price['time'] = 'N/A'
-
+                
+            curr_price['location'] = location
             item_prices[location] = curr_price
 
         return render(request, 'search.html', {
@@ -58,7 +59,7 @@ def search(request):
             'item_unique_name': item['item_unique_name'],
             'locations': library.LOCATIONS,
             'silver': library.SILVER[LANGUAGE_CODE],
-            'item_prices': item_prices,
+            'item_prices': item_prices.values(),
             'ask_search': library.ASK_SEARCH[LANGUAGE_CODE],
         })
 
