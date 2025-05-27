@@ -17,7 +17,10 @@
       </form>
       <br>  
       {% if item_name != '' %}
+        <br>
         <h3>{{item_unique_name}} - {{ item_name }}</h3>
+        <p>{{ item_description }}</p>
+        <br>
         <table class="table">
           <thead>
             <tr>
@@ -27,11 +30,11 @@
             </tr>
           </thead>
           <tbody>
-            {% for location in item_prices %}
+            {% for item in item_prices %}
               <tr>
-                <th scope="row">{{ location }}</th>
-                {% comment %} <td>{{ item['price'] }}</td> {% endcomment %}
-                {% comment %} <td>{{ item['time'] }}</td> {% endcomment %}
+                <th scope="row">{{ item.location }}</th>
+                <td>{{ item.price }} {{ silver }}</td>
+                <td class="date">{{ item.time }}</td>
               </tr>
             {% endfor %}
           </tbody>
