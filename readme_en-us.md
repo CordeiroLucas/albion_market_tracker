@@ -4,9 +4,12 @@ It retrieves information from an API made by <a href="https://www.albion-online-
 
 The main idea of the code thx to this youtube video from <a href="https://www.youtube.com/watch?v=0sU0IYOFbJk">Brandon Jacobson (Jacobson Enterprises)</a>
 
+## How it works
+
+- Actually just works on prompt terminal running main.exe
+
 ## What is working
 
-- It is on prompt yet
 - Language Selection
 - Search item by its  <a href="https://github.com/ao-data/ao-bin-dumps/blob/master/formatted/items.txt">Localized Name or Item UniqueName</a>
 
