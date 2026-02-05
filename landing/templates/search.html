@@ -31,11 +31,13 @@
           </thead>
           <tbody>
             {% for item in item_prices %}
+            {% if item.price != 0 %}
               <tr>
                 <th scope="row">{{ item.location }}</th>
                 <td>{{ item.price }} {{ silver }}</td>
                 <td class="date">{{ item.time }}</td>
               </tr>
+            {% endif %}
             {% endfor %}
           </tbody>
         </table>

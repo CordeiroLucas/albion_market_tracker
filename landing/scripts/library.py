@@ -2,7 +2,7 @@ import requests
 import datetime
 import math
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from unicodedata import normalize
 
@@ -78,4 +78,10 @@ def get_item(ITEM_NAME ,LANGUAGE):
     return None
 
 def parse_timestamp(timestamp):
-    return datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S')
+    diff = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S') - datetime.now()
+
+    total_seconds = int(diff.total_seconds())
+    hours, remainder = divmod(total_seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+
+    return timedelta(hours=hours, minutes=minutes, seconds=seconds)

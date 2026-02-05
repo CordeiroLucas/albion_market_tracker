@@ -45,7 +45,7 @@ def search(request):
             curr_price = {}
             if loc_price:
                 curr_price['price'] = loc_price['price']
-                curr_price['time'] = loc_price['time']
+                curr_price['time'] = library.parse_timestamp(loc_price['time'])
             else:
                 curr_price['price'] = 'N/A'
                 curr_price['time'] = 'N/A'
@@ -63,10 +63,22 @@ def search(request):
             'ask_search': library.ASK_SEARCH[LANGUAGE_CODE],
         })
 
-def item_handler(item, language):
+def item_handler(item:dict, language:str):
     """Handle item data and return a dictionary with relevant information"""
+    try:
+        local_name = item['LocalizedNames'][language]
+    except Exception:
+        local_name = "Inválido"
+
+    try:
+        local_desc = item['LocalizedDescriptions'][language]
+    except Exception:
+        local_desc = "Sem Descrição"
+
+    unique_name = item.get('UniqueName')
+
     return {
-        'item_name': item['LocalizedNames'][language],
-        'item_description': item['LocalizedDescriptions'][language],
-        'item_unique_name': item['UniqueName'],
+        'item_name': local_name,
+        'item_description': local_desc,
+        'item_unique_name': unique_name,
     }
